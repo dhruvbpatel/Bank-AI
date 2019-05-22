@@ -1,10 +1,6 @@
 (function($) {
     'use strict';
-    $.validator.setDefaults({
-        submitHandler: function() {
-            alert("submitted!");
-        }
-    });
+    
     $(function() {
         // validate the comment form when it is submitted
         $("#commentForm").validate({

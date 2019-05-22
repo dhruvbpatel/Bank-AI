@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt"%>
     <!DOCTYPE html>
 <html lang="en">
 
@@ -223,25 +223,31 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Add Loan type</h4>
+                  <h4 class="card-title">Edit Loan type</h4>
+                  <c:forEach items="${sessionScope.list}" var="i" >
                   <form class="cmxform" id="commentForm" method="post" action="<%=request.getContextPath()%>/LoanTypeController">
                     <fieldset>
                       <div class="form-group">
                         <label for="cname">Loan type</label>
-                        <input id="loanType" class="form-control" name="loanType" minlength="2" type="text" placeholder="Enter Loan Type" required>
+                        
+                        
+                        
+                        <input id="loanType" class="form-control" value="${i.loanType}" name="loanType"  type="text" placeholder="Enter Loan Type" required>
                       </div>
                         
                         <div class="form-group">
                         <label for="ccomment">Loan description</label>
-                        <textarea id="loanDescription" rows="4"  class="form-control" name="loanDescription" placeholder="Enter Loan Description" required></textarea>
+                        <textarea id="loanDescription" rows="4"  class="form-control" name="loanDescription" placeholder="Enter Loan Description" required>${i.loanDescription}</textarea>
                       </div>
                    
                       <input class="btn btn-primary" type="submit" value="Submit"> 
                        <input class="btn btn-primary" type="reset" value="reset">
-                       <input type="hidden" name="flag" value="addLoanType">
+                        <input type="hidden" value="${i.id}" name="id">
+                       <input type="hidden" name="flag" value="updateLoanType">
                       </fieldset>
                       </div>
                   </form>
+                  </c:forEach >
                 </div>
               </div>
             </div>
