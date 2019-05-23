@@ -223,6 +223,7 @@
                         </tr>
                       </thead>
                       <tbody>
+                      
                       <c:forEach items="${sessionScope.list}" var="i" varStatus="j">
 							<tr>
 								<td>${j.count}</td>

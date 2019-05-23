@@ -221,6 +221,8 @@
               <div class="card"	>
                 <div class="card-body">
                   <h4 class="card-title">Add Loan Rate</h4>
+                  
+                  <c:forEach items="${sessionScope.list}" var="j">
                   <form class="cmxform" id="commentForm" method="post" action="<%=request.getContextPath()%>/LoanRateController">
                     <fieldset>
                       <div class="form-group">
@@ -242,7 +244,7 @@
                       </div>
                       <div class="form-group">
                         <label for="cemail">Loan Rate</label>
-                        <input id="loanRate" class="form-control" type="number" placeholder="Enter Loan Rate" name="loanRate" required>
+                        <input id="loanRate" class="form-control" type="number" placeholder="Enter Loan Rate" name="loanRate" required value="${j.loanRate}">
                       </div>
                       
                         
@@ -251,14 +253,15 @@
                       <div class="form-group">
                         <label for="ccomment">Loan Rate Description (required)</label>
                     
-                      <textarea id="maxlength-textarea" name="loanRateDescription" class="form-control" maxlength="100" rows="5" placeholder="Enter the Description of the Loan"></textarea>
+                      <textarea id="maxlength-textarea" name="loanRateDescription" class="form-control" maxlength="100" rows="5" placeholder="Enter the Description of the Loan">${j.loanRateDescription} </textarea>
                       </div>
                       <input class="btn btn-primary" type="submit" value="Submit">
                        <input class="btn btn-primary" type="reset" value="Reset">
-                       <%-- <input type="hidden" name="id" value="${i.id}"> --%>
-                       <input type="hidden" name="flag" value="addLoanRate" >
+                        <input type="hidden" name="id" value="${j.id}">
+                       <input type="hidden" name="flag" value="updateLoanRate" >
                     </fieldset>
                   </form>
+                  </c:forEach>
                 </div>
               </div>
             </div>

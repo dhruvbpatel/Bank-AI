@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt"%>
-    <!DOCTYPE html>
+ <%@ taglib prefix="c"  uri="http://java.sun.com/jstl/core_rt"%>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,16 +10,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Victory Admin</title>
   <!-- plugins:css -->
-  <!-- <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../vendors/simple-line-icons/css/simple-line-icons.css">
-  <link rel="stylesheet" href="../../vendors/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css"> -->
   <link rel="stylesheet" href="adminResources/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="adminResources/css/simple-line-icons.css">
+  
   <link rel="stylesheet" href="adminResources/css/flag-icon.min.css">
   <link rel="stylesheet" href="adminResources/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="adminResources/css/dataTables.bootstrap4.css" />
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="adminResources/css/style.css">
@@ -30,7 +28,6 @@
 <body>
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
-    
     <jsp:include page="header.jsp"></jsp:include>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
@@ -207,102 +204,182 @@
         </div>
         <!-- partial -->
         <!-- partial:../../partials/_sidebar.html -->
-        
         <jsp:include page="menu.jsp"></jsp:include>
-        
         <!-- partial -->
         <div class="content-wrapper">
-          <div class="row grid-margin">
-            <div class="col-12">
-                        </div>
-          </div>
-          <div class="row grid-margin">
-            <div class="col-lg-12">
-              <div class="card"	>
-                <div class="card-body">
-                  <h4 class="card-title">Add Loan Rate</h4>
-                  <form class="cmxform" id="commentForm" method="post" action="<%=request.getContextPath()%>/LoanRateController">
-                    <fieldset>
-                      <div class="form-group">
-                        <label for="cname">Loan Type</label>
-                       <!--  <input id="cname" class="form-control" name="name" minlength="2" type="text" required> -->
-                      <!--  <select  name="loanType" class="form-control">
-                       
-                       <option value="carLoan" >Select Loan Type</option>
-                       
-                       
-                       </select> -->
-                       
-					 <select name="loanType" class="form-control">
-							<c:forEach items="${sessionScope.loanTypeList}" var="i">
-								<option value="${i.id}" >${i.loanType}</option>
-							</c:forEach> 
-						</select>
-                       
-                      </div>
-                      <div class="form-group">
-                        <label for="cemail">Loan Rate</label>
-                        <input id="loanRate" class="form-control" type="number" placeholder="Enter Loan Rate" name="loanRate" required>
-                      </div>
-                      
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Loan Rate Table</h4>
+              <div class="row">
+                <div class="col-12">
+                  <div class="table-responsive">
+                    <table id="order-listing" class="table">
+                      <thead>
+                        <tr>
+                            <th>Serial #</th>
+                            <th>Loan Type</th>
+                            <th>Loan Rate</th>
+                            <th>Loan Description</th>
+                            <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${sessionScope.list}" var="i" varStatus="j">
+							<tr>
+								<td>${j.count}</td>
+								
+								<td>${i.loanType.loanType}</td>
+								<td>${i.loanRate }</td>
+								<td>${i.loanRateDescription}</td>
+							 	<td>	
+                              		<button class="btn btn-outline-primary">
+                              			<a href="<%=request.getContextPath()%>/LoanRateController?flag=editLoanRate&id=${i.id}">Edit</a>
+                              		</button>
+                               		<button class="btn btn-outline-primary">
+                               			<a href="<%=request.getContextPath()%>/LoanRateController?flag=deleteLoanRate&id=${i.id}">Delete</a>
+                               		</button>
+                            	</td>
+							</tr>
+							<%-- <td><a href="RegisterController?flag=del&id=${i.id}">Delete</a>
+							<a href="RegisterController?flag=edit&id=${i.id}">Update</a></td></tr> --%>
+					</c:forEach>
+                           
                         
-                                            
-                      
-                      <div class="form-group">
-                        <label for="ccomment">Loan Rate Description (required)</label>
-                    
-                      <textarea id="maxlength-textarea" name="loanRateDescription" class="form-control" maxlength="100" rows="5" placeholder="Enter the Description of the Loan"></textarea>
-                      </div>
-                      <input class="btn btn-primary" type="submit" value="Submit">
-                       <input class="btn btn-primary" type="reset" value="Reset">
-                       <%-- <input type="hidden" name="id" value="${i.id}"> --%>
-                       <input type="hidden" name="flag" value="addLoanRate" >
-                    </fieldset>
-                  </form>
+                 <!--        <tr>
+                            <td>2</td>
+                            <td>2015/04/01</td>
+                            <td>Doe</td>
+                            <td>Brazil</td>
+                            <td>$4500</td>
+                            <td>$7500</td>
+                            <td>
+                              <label class="badge badge-danger">Pending</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2010/11/21</td>
+                            <td>Sam</td>
+                            <td>Tokyo</td>
+                            <td>$2100</td>
+                            <td>$6300</td>
+                            <td>
+                              <label class="badge badge-success">Closed</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2016/01/12</td>
+                            <td>Sam</td>
+                            <td>Tokyo</td>
+                            <td>$2100</td>
+                            <td>$6300</td>
+                            <td>
+                              <label class="badge badge-success">Closed</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>2017/12/28</td>
+                            <td>Sam</td>
+                            <td>Tokyo</td>
+                            <td>$2100</td>
+                            <td>$6300</td>
+                            <td>
+                              <label class="badge badge-success">Closed</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>2000/10/30</td>
+                            <td>Sam</td>
+                            <td>Tokyo</td>
+                            <td>$2100</td>
+                            <td>$6300</td>
+                            <td>
+                              <label class="badge badge-info">On-hold</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>2011/03/11</td>
+                            <td>Cris</td>
+                            <td>Tokyo</td>
+                            <td>$2100</td>
+                            <td>$6300</td>
+                            <td>
+                              <label class="badge badge-success">Closed</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>2015/06/25</td>
+                            <td>Tim</td>
+                            <td>Italy</td>
+                            <td>$6300</td>
+                            <td>$2100</td>
+                            <td>
+                              <label class="badge badge-info">On-hold</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>2016/11/12</td>
+                            <td>John</td>
+                            <td>Tokyo</td>
+                            <td>$2100</td>
+                            <td>$6300</td>
+                            <td>
+                              <label class="badge badge-success">Closed</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>2003/12/26</td>
+                            <td>Tom</td>
+                            <td>Germany</td>
+                            <td>$1100</td>
+                            <td>$2300</td>
+                            <td>
+                              <label class="badge badge-danger">Pending</label>
+                            </td>
+                            <td>
+                              <button class="btn btn-outline-primary">View</button>
+                            </td>
+                        </tr> -->
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-            <!--   <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Complete form validation</h4>
-                  <form class="cmxform" id="signupForm" method="get" action="#">
-                    <fieldset>
-                      <div class="form-group">
-                        <label for="firstname">Firstname</label>
-                        <input id="firstname" class="form-control" name="firstname" type="text">
-                      </div>
-                      <div class="form-group">
-                        <label for="lastname">Lastname</label>
-                        <input id="lastname" class="form-control" name="lastname" type="text">
-                      </div>
-                      <div class="form-group">
-                        <label for="username">Username</label>
-                        <input id="username" class="form-control" name="username" type="text">
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input id="password" class="form-control" name="password" type="password">
-                      </div>
-                      <div class="form-group">
-                        <label for="confirm_password">Confirm password</label>
-                        <input id="confirm_password" class="form-control" name="confirm_password" type="password">
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" class="form-control" name="email" type="email">
-                      </div>
-                      <input class="btn btn-primary" type="submit" value="Submit">
-                    </fieldset>
-                  </form>
-                </div>
-              </div> -->
-            </div>
-          </div>
 					<!-- partial:../../partials/_footer.html -->
-				<jsp:include page="footer.jsp"></jsp:include>
+					<jsp:include page="footer.jsp"></jsp:include>
 					<!-- partial -->
         </div>
         <!-- content-wrapper ends -->
@@ -315,9 +392,9 @@
   <!-- plugins:js -->
   <script src="adminResources/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <script src="adminResources/js/jquery.validate.min.js"></script>
-  <script src="adminResources/js/bootstrap-maxlength.min.js"></script>
+  <!-- Plugin js for this <page--></page-->
+  <script src="adminResources/js/jquery.dataTables.js"></script>
+  <script src="adminResources/js/dataTables.bootstrap4.js"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
   <script src="adminResources/js/off-canvas.js"></script>
@@ -327,10 +404,8 @@
   <script src="adminResources/js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="adminResources/js/form-validation.js"></script>
-  <script src="adminResources/js/bt-maxLength.js"></script>
+  <script src="adminResources/js/data-table.js"></script>
   <!-- End custom js for this page-->
 </body>
 
 </html>
-    

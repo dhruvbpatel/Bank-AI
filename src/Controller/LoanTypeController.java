@@ -131,7 +131,7 @@ public class LoanTypeController extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-
+		
 		String loanType = request.getParameter("loanType");
 		String loanDescription = request.getParameter("loanDescription");
 		

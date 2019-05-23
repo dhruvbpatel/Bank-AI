@@ -55,6 +55,25 @@ public class LoanTypeDAO {
 		return ls;
 	}
 
+	
+	public List loadLoanType() {
+		List ls = new ArrayList<>();
+		try {
+			SessionFactory sessionfactory = new Configuration().configure().buildSessionFactory();
+    		
+    		Session session = sessionfactory.openSession();
+    		
+    		Query q = session.createQuery("from LoanTypeVO");
+    		
+    		ls = q.list();
+    		
+    		session.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ls;
+	}
+	
 	public void deleteLoanType(LoanTypeVO loanTypeVO) {
 		// TODO Auto-generated method stub
 			try {

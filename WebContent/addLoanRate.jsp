@@ -251,6 +251,7 @@
                       <textarea id="maxlength-textarea" class="form-control" maxlength="100" rows="5" placeholder="Enter the Description of the Loan"></textarea>
                       </div>
                       <input class="btn btn-primary" type="submit" value="Submit">
+
                        <input class="btn btn-primary" type="reset" value="Reset">
                     </fieldset>
                   </form>

@@ -5,18 +5,22 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-          <class name="VO.LoanTypeVO" table="loan_type_tbl" lazy="false">
+          <class name="VO.LoanRateVO" table="loan_rate_tbl">
            
            <id name="id" type="int" column="id">
 			<generator class="increment"/>
 		   </id>
            
-           <property name="loanType">
-               <column name="loanType"></column>
+         <many-to-one name="loanType"  class="VO.LoanTypeVO" column="loanType" lazy="false">
+         	
+         </many-to-one>
+           
+           <property name="loanRate">
+           	<column name="loanRate"></column>
            </property>
            
-           <property name="loanDescription">
-               <column name="loanDescription"></column>
+           <property name="loanRateDescription">
+               <column name="loanRateDescription"></column>
            </property>
                    
           
@@ -25,4 +29,4 @@
            
         
         </class>
-</hibernate-mapping>
+</hibernate-mapping> 
