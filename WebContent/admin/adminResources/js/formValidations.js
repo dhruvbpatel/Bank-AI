@@ -5,9 +5,7 @@ function validateForm(){
 	var loanType = document.loanTypeForm.loanType;
 	var loanDescription = document.loanTypeForm.loanDescription;
 	
-	   
-	
-	
+	   	
 	
 	if(loanType.value.trim()==""){
 		
@@ -40,7 +38,7 @@ function validateForm(){
     	 return false;
      }
      
-/*-----------------------    for   description --------------------------*/     
+/*-----------------------  validations  for   description --------------------------*/     
      
      var letters = /^[A-Za-z0-9 _]/;
      if(loanDecription.value.match(letters))
@@ -56,13 +54,13 @@ function validateForm(){
      }
      
 }   
-   // FOR  LoanD
  
+/*-----------------------  validations  for   Max length --------------------------*/
  	
 function typelength()
 { 
 var field = document.loanTypeForm.loanType.value;
-var mnlen=2;
+var mnlen=4;
 var mxlen=255;
 
 
@@ -94,11 +92,14 @@ return false;
 }
 else
 { 
-alert('jjjj');
+alert('Inserted Data !');
 return true;
 }
 }
      
+
+
+
   
 	
 	
