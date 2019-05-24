@@ -18,7 +18,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="index.jsp">
                 <i class="icon-rocket menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
                 <span class="badge badge-success">New</span>
@@ -54,7 +54,7 @@
               </a>
               <div class="collapse" id="page-layouts">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/boxed-layout.html">Add Loan Staff</a></li>
+                  <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="addLoanStaff.jsp">Add Loan Staff</a></li>
                   <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">View Loan Staff</a></li>
              <!--      <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Horizontal Menu</a></li> -->
                 </ul>

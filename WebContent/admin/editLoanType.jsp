@@ -5,6 +5,7 @@
 <html lang="en">
 
 <head>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -225,19 +226,19 @@
                 <div class="card-body">
                   <h4 class="card-title">Edit Loan type</h4>
                   <c:forEach items="${sessionScope.list}" var="i" >
-                  <form class="cmxform" id="commentForm" method="post" action="<%=request.getContextPath()%>/LoanTypeController">
+                  <form class="cmxform" id="commentForm" name="loanTypeForm" onsubmit="return validateForm()" method="post" action="<%=request.getContextPath()%>/LoanTypeController">
                     <fieldset>
                       <div class="form-group">
                         <label for="cname">Loan type</label>
                         
                         
                         
-                        <input id="loanType" class="form-control" value="${i.loanType}" name="loanType"  type="text" placeholder="Enter Loan Type" required>
+                        <input id="loanType" class="form-control" value="${i.loanType}" name="loanType"  type="text" placeholder="Enter Loan Type" >
                       </div>
                         
                         <div class="form-group">
                         <label for="ccomment">Loan description</label>
-                        <textarea id="loanDescription" rows="4"  class="form-control" name="loanDescription" placeholder="Enter Loan Description" required>${i.loanDescription}</textarea>
+                        <textarea id="loanDescription" rows="4"  class="form-control" name="loanDescription" placeholder="Enter Loan Description" >${i.loanDescription}</textarea>
                       </div>
                    
                       <input class="btn btn-primary" type="submit" value="Submit"> 
@@ -283,6 +284,7 @@
   <script src="adminResources/js/misc.js"></script>
   <script src="adminResources/js/settings.js"></script>
   <script src="adminResources/js/todolist.js"></script>
+  <script src="adminResources/js/formValidations.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="adminResources/js/form-validation.js"></script>

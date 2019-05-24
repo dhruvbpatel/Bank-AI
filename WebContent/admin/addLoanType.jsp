@@ -5,6 +5,40 @@
 <html lang="en">
 
 <head>
+
+<script type="text/javascript">
+
+function validateForm(){
+
+	
+	
+	/*var val = document.forms["loanTypeForm"]["loanType"];*/	
+	
+var x = document.loanTypeForm.loanType.value;
+
+ if(x == ""){
+	 
+	 alert( "Please Enter Value in  LoanType " );
+     document.loanTypeForm.loanType.focus() ;
+     return false;
+ }
+
+ if (isNaN(x)){
+	 alert( "Please Enter Proper  Value in  LoanType " );
+     document.loanTypeForm.loanType.focus() ;
+     return false;
+ }
+ 
+ 
+ 
+ return (true);
+
+}
+
+
+</script>
+
+<script src="adminResources/js/formValidations.js"></script>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,6 +58,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="adminResources/css/style.css">
   <!-- endinject -->
+  
   <link rel="shortcut icon" href="adminResources/images/favicon.png" />
 </head>
 
@@ -224,19 +259,19 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add Loan type</h4>
-                  <form class="cmxform" id="commentForm" method="post" action="<%=request.getContextPath()%>/LoanTypeController">
-                    <fieldset>
+                  <form class="cmxform" id="commentForm" name="loanTypeForm" method="post" action="<%=request.getContextPath()%>/LoanTypeController" onsubmit="return validateForm()">
+                    <fieldset>	
                       <div class="form-group">
                         <label for="cname">Loan type</label>
-                        <input id="loanType" class="form-control" name="loanType" minlength="2" type="text" placeholder="Enter Loan Type" required>
+                        <input id="loanType" class="form-control" name="loanType"  type="text" placeholder="Enter Loan Type" >
                       </div>
                         
                         <div class="form-group">
                         <label for="ccomment">Loan description</label>
-                        <textarea id="loanDescription" rows="4"  class="form-control" name="loanDescription" placeholder="Enter Loan Description" required></textarea>
+                        <textarea id="loanDescription" rows="4"  class="form-control" name="loanDescription" placeholder="Enter Loan Description" ></textarea>
                       </div>
                    
-                      <input class="btn btn-primary" type="submit" value="Submit"> 
+                      <input class="btn btn-primary" type="submit"  value="Submit"> 
                        <input class="btn btn-primary" type="reset" value="reset">
                        <input type="hidden" name="flag" value="addLoanType">
                       </fieldset>
@@ -280,9 +315,11 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="adminResources/js/form-validation.js"></script>
+  <script src="adminResources/js/formValidations.js"></script>
   <script src="adminResources/js/bt-maxLength.js"></script>
   <!-- End custom js for this page-->
 </body>
 
 </html>
+    
     
