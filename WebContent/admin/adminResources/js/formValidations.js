@@ -4,7 +4,7 @@ function validateForm(){
 	
 	var loanType = document.loanTypeForm.loanType;
 	var loanDescription = document.loanTypeForm.loanDescription;
-	
+		
 	   	
 	
 	if(loanType.value.trim()==""){

@@ -51,7 +51,7 @@
               <div class="tiles danger"></div>
               <div class="tiles pink"></div>
               <div class="tiles info"></div>
-              <div class="tiles dark"></div>
+              <div class="tiles dark"></div>	
               <div class="tiles default"></div>
             </div>
           </div>

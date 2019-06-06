@@ -6,37 +6,6 @@
 
 <head>
 
-<script type="text/javascript">
-
-function validateForm(){
-
-	
-	
-	/*var val = document.forms["loanTypeForm"]["loanType"];*/	
-	
-var x = document.loanTypeForm.loanType.value;
-
- if(x == ""){
-	 
-	 alert( "Please Enter Value in  LoanType " );
-     document.loanTypeForm.loanType.focus() ;
-     return false;
- }
-
- if (isNaN(x)){
-	 alert( "Please Enter Proper  Value in  LoanType " );
-     document.loanTypeForm.loanType.focus() ;
-     return false;
- }
- 
- 
- 
- return (true);
-
-}
-
-
-</script>
 
 <script src="adminResources/js/formValidations.js"></script>
   <!-- Required meta tags -->

@@ -22,5 +22,7 @@
       
 	<mapping resource="VO/LoanTypeVO.hbm.xml"></mapping>
     <mapping resource="VO/LoanRateVO.hbm.xml"></mapping> 
+    <mapping resource="VO/LoanStaffVO.hbm.xml"></mapping>
+    <mapping resource="VO/LoginVO.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

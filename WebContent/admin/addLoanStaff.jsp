@@ -215,106 +215,66 @@
           <div class="row grid-margin">
             <div class="col-12">
               <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Bootstrap Maxlength</h4>
-                  <div class="form-group row">
-                    <div class="col-lg-3">
-                      <label class="col-form-label">Default usage</label>
-                    </div>
-                    <div class="col-lg-8">
-                      <input class="form-control" maxlength="25" name="defaultconfig" id="defaultconfig" type="text" placeholder="Type Something..">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-lg-3">
-                      <label class="col-form-label">Few options</label>
-                    </div>
-                    <div class="col-lg-8">
-                      <input class="form-control" maxlength="20" name="defaultconfig-2" id="defaultconfig-2" type="text" placeholder="Type Something..">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-lg-3">
-                      <label class="col-form-label">All the options</label>
-                    </div>
-                    <div class="col-lg-8">
-                      <input class="form-control" maxlength="10" name="defaultconfig-3" id="defaultconfig-3" type="text" placeholder="Type Something..">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="col-lg-3">
-                      <label class="col-form-label">Text Area</label>
-                    </div>
-                    <div class="col-lg-8">
-                      <textarea id="maxlength-textarea" class="form-control" maxlength="100" rows="2" placeholder="This textarea has a limit of 100 chars."></textarea>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>
-          <div class="row grid-margin">
-            <div class="col-lg-12">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Basic form validation</h4>
-                  <form class="cmxform" id="commentForm" method="get" action="#">
-                    <fieldset>
-                      <div class="form-group">
-                        <label for="cname">Name (required, at least 2 characters)</label>
-                        <input id="cname" class="form-control" name="name" minlength="2" type="text" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="cemail">E-Mail (required)</label>
-                        <input id="cemail" class="form-control" type="email" name="email" required>
-                      </div>
-                      <div class="form-group">
-                        <label for="curl">URL (optional)</label>
-                        <input id="curl" class="form-control" type="url" name="url">
-                      </div>
-                      <div class="form-group">
-                        <label for="ccomment">Your comment (required)</label>
-                        <textarea id="ccomment" class="form-control" name="comment" required></textarea>
-                      </div>
-                      <input class="btn btn-primary" type="submit" value="Submit">
-                    </fieldset>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+      
           <div class="row">
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Complete form validation</h4>
-                  <form class="cmxform" id="signupForm" method="get" action="#">
+                  <h4 class="card-title">Staff Register</h4>
+                  <br>
+                  <form class="cmxform" id="signupForm" method="post"  action="<%=request.getContextPath()%>/LoanStaffController">
                     <fieldset>
                       <div class="form-group">
                         <label for="firstname">Firstname</label>
-                        <input id="firstname" class="form-control" name="firstname" type="text">
+                        <input id="firstname" class="form-control" name="firstname" type="text" placeholder="Enter a first name">
                       </div>
                       <div class="form-group">
                         <label for="lastname">Lastname</label>
-                        <input id="lastname" class="form-control" name="lastname" type="text">
+                        <input id="lastname" class="form-control" name="lastname" type="text" placeholder="Enter a last name">
                       </div>
+                 
+          
                       <div class="form-group">
-                        <label for="username">Username</label>
-                        <input id="username" class="form-control" name="username" type="text">
+                        <label for="gender">Gender</label><br>
+                       <input type="radio" name="gender" value="male" checked> Male
+  						<input type="radio" name="gender" value="female"> Female
+ 						 <input type="radio" name="gender" value="other"> Other 
                       </div>
+                 
                       <div class="form-group">
-                        <label for="password">Password</label>
-                        <input id="password" class="form-control" name="password" type="password">
+                        <label >phone no:-</label>
+                        <input id="phone" class="form-control" name="phone" type="number" placeholder="Enter a phone no">
                       </div>
-                      <div class="form-group">
-                        <label for="confirm_password">Confirm password</label>
-                        <input id="confirm_password" class="form-control" name="confirm_password" type="password">
-                      </div>
+                      
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input id="email" class="form-control" name="email" type="email">
+                        <input id="email" class="form-control" name="email" type="email"placeholder="Enter a email id">
                       </div>
+                      
+                      <div class="form-group">
+                        <label >Birth Date</label>
+                        <input id="birth_date" class="form-control" name="bdate" type="date">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label >Address</label><br>
+                        <textarea rows="5" cols="50" class="form-control" placeholder="Enter a address" name="address"></textarea>
+                      </div> 
+                      
+                       <!-- <div class="form-group">
+                        	<label >Add Document</label><br>
+                       <input type="file" name="document" class="form-control">
+  					
+                      </div> -->
+                      
+					  <input type="hidden" name="flag" value="insert">         		                      
                       <input class="btn btn-primary" type="submit" value="Submit">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input class="btn btn-primary" type="reset" value="Reset">
                     </fieldset>
                   </form>
                 </div>
