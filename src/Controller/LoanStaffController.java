@@ -92,6 +92,7 @@ public class LoanStaffController extends HttpServlet {
 		insert(request,response);	
 		response.sendRedirect("admin/addLoanStaff.jsp");
 		}
+		}
 	}
 
 

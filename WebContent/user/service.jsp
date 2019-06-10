@@ -12,7 +12,7 @@
 		<!-- For Resposive Device -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>inobiz -  Business & Agency Template</title>
+		<title>BankAI</title>
 
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
@@ -197,8 +197,8 @@
 			<div class="consultation-help clearfix section-margin-bottom">
 				<div class="container">
 					<div class="theme-title">
-						<h2>Request a Free Consultation</h2>
-						<p>How workforce development programs turn talent puddles into talent pools , Hiring isn’t easy. Employers <br> might get hundreds </p>
+						<h2>Add Your Details </h2>
+						<p><br></p>
 					</div> <!-- /.theme-title -->
 				</div> <!-- /.container -->
 				<div class="clearfix">
@@ -229,15 +229,15 @@
 						</div> <!-- /.consultation-form-wrapper -->
 					</div> <!-- /.section-part -->
 
-					<div class="section-part float-left text-wrapper">
+					<!-- <div class="section-part float-left text-wrapper">
 						<div class="opacity clearfix">
 							<div class="col float-left">
 								<h3>27 Years of <br>Experience in <span class="p-color">Finance</span> <br>&amp; Business</h3>
 								<p>Hiring isn’t easy. Employers might get hundreds — sometimes thousands — of resumes for a single open position and still, somehow, hire the wrong </p>
 								<a href="project-v2.html" class="theme-button-one">See Services</a>
-							</div> <!-- /.col -->
-						</div> <!-- /.opacity -->
-					</div> <!-- /.section-part -->
+							</div> /.col
+						</div> /.opacity
+					</div> /.section-part -->
 				</div>
 			</div> <!-- /.consultation-help -->
 
@@ -252,10 +252,10 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-9 col-sm-8 col-xs-12">
-							<h3>If you have any querry for related Business… Just touch on this button</h3>
+							<h3>If you have any query Contact Us !. Just touch on this button</h3>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-12">
-							<a href="contact.html" class="theme-button-one float-right">Contact us</a>
+							<a href="contact.jsp" class="theme-button-one float-right">Contact us</a>
 						</div>
 					</div>
 				</div> <!-- /.container -->
